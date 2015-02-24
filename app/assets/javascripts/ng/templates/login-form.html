@@ -1,0 +1,77 @@
+
+<div class="modal fade bs-example-modal-lg c-modal" tabindex="-1" role="dialog"
+     ng-controller="loginCtrl" aria-hidden="true" id="loginForm">
+    <div class="form-container">
+        <p class="clearfix">
+            <a class="close pull-right"></a>
+        </p>
+        <form class="login-form" novalidate name="loginForm">
+            <header ng-switch on="registered" class="text-center">
+                <h3 ng-switch-when="true" class="space-block-t space-block-b">
+                    Прыемна бачыць вас зноў!
+                    </br>
+                    <small>Посьпехаў!</small>
+                </h3>
+                <h3 ng-switch-when="false" class="space-block-t space-block-b">
+                    Стварыць акаўнт
+                    </br>
+                    <small>Зойме менш за хвіліну</small>
+                </h3>
+                <small class="text-warning" ng-show="loginForm.$submitted">
+                    <span ng-show="loginForm.uEmail.$error.required">Tell us your email.</span>
+                    <span ng-show="loginForm.uEmail.$error.email">This is not a valid email.</span>
+                    <span ng-show="loginForm.uPsw.$error.minlength">Psw too short.</span>
+                    <span ng-show="loginForm.uPsw.$error.required">Please, enter your psw.</span>
+                </small>
+            </header>
+            <div ng-show="!registered" class="clearfix form-inline c-inline">
+                <div class="form-group c-input col-xs-6 grid">
+                    <label class="sr-only" for="user-name"></label>
+                    <input class="form-control" id="user-name" required placeholder="Імя" name="uName" data-ng-model="userData.name">
+                </div>
+                <div class="form-group c-input col-xs-6 grid">
+                    <label class="sr-only" for="surname"></label>
+                    <input class="form-control" id="surname" placeholder="Прозвішча" name="uSurname" required data-ng-model="userData.surname">
+                </div>
+            </div>
+            <div class="form-group c-input">
+                <label class="sr-only" for="email"></label>
+                <input class="form-control" id="email" placeholder="Email" type="email" name="uEmail" required data-ng-model="userData.email">
+            </div>
+            <div class="form-group c-input">
+                <label class="sr-only" for="psw"></label>
+                <input class="form-control" placeholder="Пароль" type="text" required minlength="3" name="uPsw" id="psw" data-ng-model="userData.psw">
+            </div>
+            <div ng-show="registered" class="form-group">
+                <p class="facebook">
+                    <a>
+                        <small>
+                            <b><span class="icon"></span> Увайсці праз Facebook</b>
+                        </small>
+                    </a>
+                </p>
+                <hr>
+            </div>
+            <div ng-show="registered" class="form-group clearfix space-block-t">
+                <div class="col-xs-8">
+                    <p><small><b class="text-muted">Няма акаўнту? </b> <a ng-click="registered = false">Рэгістрацыя</a></small></p>
+                </div>
+                <p class="col-xs-4">
+                    <input type="submit" ng-disabled="!(loginForm.uEmail.$valid && loginForm.uPsw.$valid)" class="btn big-btn btn-orange pull-right" ng-click="logIn()" value="Уваход">
+                </p>
+            </div>
+            <div ng-show="!registered" class="form-group clearfix space-block-t">
+                <div class="col-xs-8">
+                    <p><small><b class="text-muted">Есць акаўнт? </b> <a ng-click="registered = true">Увайсці</a></small></p>
+                </div>
+                <p class="col-xs-4">
+                    <input type="submit" class="btn big-btn btn-orange pull-right"
+                            ng-disabled="!loginForm.$valid"
+                            ng-click="register()" value="Гатова">
+            </div>
+        </form>
+        <form ng-show="registered" class="help-block text-center">
+            <a><p class="container-fluid">Забылі пароль?</p></a>
+        </form>
+    </div>
+</div>

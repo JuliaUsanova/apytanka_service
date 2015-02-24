@@ -1,0 +1,81 @@
+
+<div id="main">
+<div class="page-content">
+<div class="container">
+<section class="user-info-body">
+    <img ng-src="{{apytanka.user.avatar}}" class="background-image">
+    <div class="user-info">
+        <div class="space-block-t">
+            <div class="user-photo img-circle center-block">
+                <img ng-src="{{apytanka.user.avatar}}" class="img-responsive">
+            </div>
+            <h1 class="text-center text-uppercase space-block-b"> web developer </h1>
+            <div>
+                <p class="tab-content-c">
+                    nfsdhnc jdsijflkdjoauoiw  dfuigowsdjckhufg dsuifweiosdf cniuddposudojc sidufsoic 232 cusd31 cxofui
+                    jcdsoifus  jxifosuao cjsdoiufga vjogiuad[o vdfug[aoisodvjifugisfjvfdipsup
+                </p>
+                <p class="tab-pane-c text-center space-block-t">
+                    <a title="Адукацыя"><span class="glyphicon glyphicon-briefcase"></span> </a>
+                    <a title="Цікавасці"><span class="glyphicon glyphicon-headphones"></span> </a>
+                    <a title="Пра сябе"><span class="glyphicon glyphicon-user"></span> </a>
+                    <a title="Кантакты"><span class="glyphicon glyphicon-envelope"></span> </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <h2>{{apytanka.title}}
+        <br><small>{{apytanka.user.country}}, {{apytank.user.city}}, {{Date.parse(apytanka.date)}} </small>
+    </h2>
+    <article>
+        {{apytanka.content}}
+    </article>
+
+
+</section>
+<section>
+    <form class="add-comment">
+        <h3 class="text-uppercase">
+            Ваша адзнака:
+            <span class="glyphicon glyphicon-heart" ng-click="uComment.rating.setR(1)" ng-class="{orange: uComment.rating.isPositive(1) }"></span>
+            <span class="glyphicon glyphicon-heart" ng-click="uComment.rating.setR(2)" ng-class="{orange: uComment.rating.isPositive(2) }"></span>
+            <span class="glyphicon glyphicon-heart" ng-click="uComment.rating.setR(3)" ng-class="{orange: uComment.rating.isPositive(3) }"></span>
+            <span class="glyphicon glyphicon-heart" ng-click="uComment.rating.setR(4)" ng-class="{orange: uComment.rating.isPositive(4) }"></span>
+            <span class="glyphicon glyphicon-heart" ng-click="uComment.rating.setR(5)" ng-class="{orange: uComment.rating.isPositive(5) }"></span>
+        </h3>
+        <div class="form-group c-input">
+            <label for="comment-title" class="sr-only">У агульным:</label>
+            <input id="comment-title" type="text" class="form-control" placeholder="Загаловак вашага каментара" ng-model="uComment.title">
+        </div>
+        <div class="form-group c-input">
+            <label for="comment-body" class="sr-only">Больш падрабязна:</label>
+            <textarea id="comment-body" type="text" class="form-control" placeholder="Ваш каментар" ng-model="uComment.content"></textarea>
+        </div>
+        <div class="clearfix space-block-t">
+            <button class="btn btn-default btn-sm pull-right" ng-click="addComment()"> Дадаць каментар</button>
+        </div>
+    </form>
+</section>
+<section>
+    <div class="apytanka-comment">
+        <div apytanka-comment ng-repeat="review in apytanka.comments"></div>
+    </div>
+    <div class="clearfix">
+        <nav class="pull-right">
+            <ul class="pagination">
+                <li><a href="#"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</section>
+</div>
+</div>
+</div>

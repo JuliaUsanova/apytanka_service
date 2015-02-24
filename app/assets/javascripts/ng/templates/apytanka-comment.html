@@ -1,0 +1,29 @@
+<div class="comment-body">
+    <div class="clearfix">
+        <div class="col-xs-3 col-sm-1 logo-block">
+            <a>
+                <img ng-src="{{review.user.avatar}}" class="img-responsive">
+                <cite class="text-muted author small">
+                    {{review.user.name}} {{review.user.surname}}
+                </cite>
+            </a>
+        </div>
+        <div class="col-xs-9 col-sm-10 descr-block">
+            <header class="clearfix">
+                <h4 class="col-sm-9">{{review.comment.title}}
+                    <br><small>{{review.user.country}}, {{review.user.city}}, {{review.comment.date}} </small></h4>
+                <h4 class="col-sm-3 text-right">
+                    <span class="glyphicon glyphicon-heart" ng-class="{orange: ((review.comment.rating - 1) >= 0)}"></span>
+                    <span class="glyphicon glyphicon-heart" ng-class="{orange: ((review.comment.rating - 2) >= 0)}"></span>
+                    <span class="glyphicon glyphicon-heart" ng-class="{orange: ((review.comment.rating - 3) >= 0)}"></span>
+                    <span class="glyphicon glyphicon-heart" ng-class="{orange: ((review.comment.rating - 4) >= 0)}"></span>
+                    <span class="glyphicon glyphicon-heart" ng-class="{orange: ((review.comment.rating - 5) >= 0)}"></span>
+                </h4>
+            </header>
+            <div>
+                {{review.comment.content}}
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>

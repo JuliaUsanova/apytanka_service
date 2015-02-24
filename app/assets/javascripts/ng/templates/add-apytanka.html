@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../js/common/common.js"></script>
+    <script src="../js/common/directives.js"></script>
+    <script src="../js/user/user-service.js"></script>
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.css" media="screen, projection" rel="stylesheet">
+    <link href="../css/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
+</head>
+<body>
+<div>
+
+    <div class="modal fade bs-example-modal-lg c-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="form-container">
+            <p class="clearfix">
+                <a class="close pull-right"></a>
+            </p>
+            <form class="">
+                <header class="text-center">
+                    <h3 class="space-block-t space-block-b">
+                        Чаго не хапае твайму гораду?
+                        </br>
+                        <small>Вырашэнне праблемы ў 3 крокі!</small>
+                    </h3>
+                </header>
+                <ol class="text-muted hint">
+                    <li>Абiры краіну и горад, у якіх ты заўважыў праблему.</li>
+                    <li>Прыдумай назву, якая добра адлюстроўвае яе існасць.</li>
+                    <li>Падрабязна апішы праблему, як ты з ёй сутыкнуўся. Падумай над яе вырашэннем.
+                        Калі ёсць ідэі, абавязкова напішы пра іх.</li>
+                </ol>
+
+                <div class="form-inline c-inline">
+                    <div class="form-group c-input col-sm-6">
+                        <label class="sr-only" for="country"></label>
+                        <input class="form-control" placeholder="Краіна" id="country">
+                    </div>
+                    <div class="form-group c-input col-sm-6">
+                        <label class="sr-only" for="city"></label>
+                        <input class="form-control" placeholder="Горад" id="city">
+                    </div>
+                </div>
+
+                <div class="form-group c-input">
+                    <label class="sr-only" for="pr-title"></label>
+                    <input class="form-control" placeholder="Назва праблемы" id="pr-title">
+                </div>
+                <div class="form-group c-input">
+                    <label class="sr-only" for="pr-descr"></label>
+                    <textarea id="pr-descr" type="text" class="form-control" placeholder="Падрабязнае апісанне праблемы"></textarea>
+                </div>
+                <div class="clearfix space-block-t  space-block-b">
+                    <div class="pull-right col-xs-8">
+                        <b class="text-muted small">Абярыце катэгорыю</b>
+                        <button type="button" class="btn dropdown-toggle btn-sm btn-default" data-toggle="dropdown" aria-expanded="false">
+                            Катэгорыі <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                            </li><li><a><span class="glyphicon glyphicon-headphones"></span>  Забавы</a></li>
+                            <li><a><span class="glyphicon glyphicon-heart-empty"></span>  Здароўе</a></li>
+                            <li><a><span class="glyphicon glyphicon-briefcase"></span>  Бізнэс</a></li>
+                            <li><a><span class="glyphicon glyphicon-road"></span>  Падарожжы</a></li>
+                            <li><a><span class="glyphicon glyphicon-th-large"></span>  Іншае</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group c-input clearfix space-block-t">
+                    <input type="button" class="btn btn-lg btn-orange pull-right btn-block form-control" value="Дадаць праблему">
+                        <!--<button class="btn big-btn btn-orange pull-right btn-block">Дадаць праблему</button>-->
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

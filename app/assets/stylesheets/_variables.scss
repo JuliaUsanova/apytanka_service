@@ -1,0 +1,16 @@
+$orange: #FA6F4F;
+$dark-orange: darken(#FA6F4F, 3%);
+$light-orange: lighten(#FA6F4F, 5%);
+
+$light-background: rgba(250, 162, 125, 0.05);
+$white: #fff;
+$mixed-white: mix($light-background, $white, 9);
+
+$grey: rgb(84, 81, 81);
+$light-grey: #E0E0E0;
+
+$link-color: #4f95bb;
+$link-color-hover: #3664a2;
+$light-blue: lighten($link-color, 40%);
+
+$background-image: #8A9BA3;

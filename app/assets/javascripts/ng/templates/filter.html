@@ -1,0 +1,79 @@
+
+    <section ng-if="hideFiltersPanel">
+        <form class="add-comment">
+            <h3 class="text-uppercase">
+                Новая апытанка
+            </h3>
+            <div class="form-group c-input">
+                <label for="title" class="sr-only">Назва i кароткі змест:</label>
+                <input id="title" type="text" class="form-control" placeholder="Загаловак" ng-model="ap.title">
+            </div>
+            <div class="form-group c-input">
+                <label for="details-body" class="sr-only">Больш падрабязна:</label>
+                <textarea id="details-body" type="text" class="form-control" placeholder="Больш падрабязна" ng-model="ap.content"></textarea>
+            </div>
+            <div class="clearfix space-block-t">
+                <button class="btn btn-default btn-sm pull-right" ng-click="addApytanka()"> Дадаць</button>
+            </div>
+        </form>
+    </section>
+    <section ng-if="!hideFiltersPanel">
+        <h3>Сартаваць па:</h3>
+        <nav class="clearfix form-inline c-inline">
+            <div class="form-group c-input col-xs-4 col-sm-2">
+                <label for="filter1">Датам
+                    <a class="glyphicon glyphicon-chevron-up"></a>
+                    <a class="glyphicon glyphicon-chevron-down"></a>
+                </label>
+                <select id="filter1" class="form-control" ng-options="obj.value as obj.name for obj in filter.rating.options" ng-model="filter.selected.rating">
+                </select>
+            </div>
+            <div class="form-group c-input col-xs-4 col-sm-2">
+                <label for="filter2">Рэйтынгу
+                    <a class="glyphicon glyphicon-chevron-up"></a>
+                    <a class="glyphicon glyphicon-chevron-down"></a>
+                </label>
+                <select class="form-control" id="filter2" ng-model="filter.selected.date" ng-options="obj.value as obj.name for obj in filter.date.options">
+                </select>
+            </div>
+            <div class="form-group c-input col-xs-4 col-sm-2">
+                <label for="filter3">Па краінах</label>
+                <select class="form-control" ng-model="filter.selected.country" id="filter3" ng-options="obj.id as obj.name for obj in filter.countries.list">
+                </select>
+            </div>
+            <div class="form-group c-input col-xs-8 col-sm-3">
+                <label for="search-filter">Пошук</label>
+                <input type="text" class="form-control" id="search-filter" ng-model="filter.selected.search" ng-model-options="{ updateOn: 'blur' }">
+            </div>
+            <div class="col-xs-4 col-sm-3">
+                <p class="pull-right">
+                    <button class="btn btn-default btn-block" ng-click="filter.reset()">Адключыць фильтр</button>
+                    <button class="btn btn-default btn-block" ng-click="createApytanka()">Дадаць праблему</button>
+                </p>
+            </div>
+        </nav>
+    </section>
+    <section>
+        <ng-transclude></ng-transclude>
+    </section>
+    <section>
+        <div class="clearfix">
+            <nav>
+                <ul class="pagination">
+                    <li ng-class="{disabled: pagination.numbersList()[0] == 1}">
+                        <a ng-click="pagination.prev()">
+                            <span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li ng-repeat="number in pagination.numbersList()" ng-class="{active: pagination.pageIndex() == number}">
+                        <a ng-href=" {{'#' + number}}" ng-disabled="pagination.pageIndex() == number" >{{number}}</a>
+                    </li>
+                    <li ng-class="{disabled: pagination.numbersList()[pagination.numbersList().length - 1] == pagination.pagesLength()}">
+                        <a ng-click="pagination.next()">
+                            <span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>

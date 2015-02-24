@@ -1,0 +1,8 @@
+<div ng-app="myApp" class="container-fluid"  ng-controller="appCtrl">
+  <div ng-include src="'ng/templates/login-form.html'" include-replace="true"></div>
+  <header ng-include src="'ng/templates/header.html'" id="header" class="container"></header>
+
+  <ng-view autoscroll class="view-container"></ng-view>
+
+  <footer ng-include="'ng/templates/footer.html'"></footer>
+</div>

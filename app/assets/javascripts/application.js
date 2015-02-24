@@ -12,5 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
+//= require angular
+//= require angular-route
+//= require angular-rails-templates
+//= require bootstrap-sprockets
+
+//= require_tree ./ng/templates
+//= require_tree ./ng/app
+//= require_tree ./ng/modules
+//= require_tree ./ng/services
+//= require_tree ./ng/filters
+//= require_tree ./ng/directives
+//= require_tree ./ng/controllers
+//= require_tree ./ng/models
+
+//= require ng/app.js.erb
+
 //= require_tree .

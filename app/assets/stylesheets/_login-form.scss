@@ -1,0 +1,68 @@
+
+.c-modal .modal-backdrop.in{
+  background-color: $grey;
+  opacity: .8;
+}
+
+.form-container{
+  width: 25%;
+  min-width: 420px;
+  margin: auto;
+  margin-top: 100px;
+  position: relative;
+  z-index: 1100;
+
+  .close{
+    color: white;
+    background-image: x;
+    opacity: 0.9;
+    height: 29px;
+    width: 29px;
+      &:hover{
+        opacity: 1;
+      }
+  }
+
+  form{
+    border-radius: 4px;
+      &:first-of-type{
+        background: white;
+      }
+      &.help-block {
+        background-color: transparentize($light-grey, 0.85);
+        line-height: 45px;
+        &:hover{
+          background-color: transparentize($light-grey, 0.83);
+        }
+            a{
+              color: white;
+              text-decoration: none;
+              letter-spacing: 1px;
+            }
+      }
+  }
+
+  header{
+    padding: 10px;
+      small{
+        opacity: 0.9;
+      }
+  }
+
+}
+
+p.facebook{
+  padding: 13px 13px 0px;
+  margin-bottom: -3px;
+
+  b{
+    vertical-align: bottom;
+    margin-left: 2px;
+  }
+
+  .icon {
+    background: url('modal-fb-icon-blue.png') no-repeat;
+    height: 20px;
+    width: 20px;
+  }
+}

@@ -1,0 +1,35 @@
+
+<div id="main">
+    <div class="profile-page page-content">
+        <div class="container">
+            <section id="first" class="user-info-body">
+                <img src="assets/images/1644835.jpg" class="background-image">
+                <div class="user-info">
+                    <div class="space-block-t">
+                        <div class="user-photo img-circle center-block">
+                            <img src="assets/images/1644835.jpg" class="img-responsive">
+                        </div>
+                        <h1 class="text-center text-uppercase space-block-b"> {{chosenUser.name}} {{chosenUser.surname}} </h1>
+                        <div>
+                            <p class="tab-content-c">
+                                nfsdhnc jdsijflkdjoauoiw  dfuigowsdjckhufg dsuifweiosdf cniuddposudojc sidufsoic 232 cusd31 cxofui
+                                jcdsoifus  jxifosuao cjsdoiufga vjogiuad[o vdfug[aoisodvjifugisfjvfdipsup
+                            </p>
+                            <p class="tab-pane-c text-center space-block-t">
+                                <a title="Адукацыя"><span class="glyphicon glyphicon-briefcase"></span> </a>
+                                <a title="Цікавасці"><span class="glyphicon glyphicon-headphones"></span> </a>
+                                <a title="Пра сябе"><span class="glyphicon glyphicon-user"></span> </a>
+                                <a title="Кантакты"><span class="glyphicon glyphicon-envelope"></span> </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div ng-controller="apytankaListCtrl">
+                <div filter filter-params="filter">
+                    <div apytanka ng-repeat="apytanka in pagination.currentPage(pagination.pageIndex())" ng-model="apytanka"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

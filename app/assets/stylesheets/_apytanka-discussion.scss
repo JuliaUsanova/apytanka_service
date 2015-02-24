@@ -1,0 +1,16 @@
+form.add-comment{
+  background: white;
+  padding: 20px;
+}
+
+.apytanka-comment{
+
+  .comment-body h4{
+    padding-left: 0;
+    &:hover{
+      padding-left: 15px;
+      font-weight: bold;
+    };
+    @include transition(0.3s);
+  }
+}

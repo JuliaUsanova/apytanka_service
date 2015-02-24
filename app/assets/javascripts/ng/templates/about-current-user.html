@@ -1,0 +1,159 @@
+<div>
+    <section>
+        <h3>
+            Асабістыя дадзеныя
+        </h3>
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <td rowspan="2">
+                    <img ng-src="{{currentUser.avatar}}" width="180" ng-show="currentUser.avatar && !currentUser.newAvatar">
+                    <img ng-src="{{currentUser.newAvatar}}" width="180" ng-show="currentUser.avatar && currentUser.newAvatar">
+                    <div>
+                        <a ng-click="selectFile()"><span class="glyphicon glyphicon-camera"></span> Запампаваць фота</a>
+                        <input type="file" id="fileselect" value="" class="ng-hide" custom-on-change handler="setAvatar(params)"
+                               ng-model="currentUser.avatar">
+                    </div>
+                </td>
+                <td colspan="2" class="form-group c-input">
+                    <label for="name">Імя</label>
+                    <input type="text" class="form-control" id="name" placeholder="Вашае імя" ng-model="currentUser.name">
+                </td>
+                <td colspan="2" class="form-group c-input">
+                    <label for="surname">Імя па бацьку</label>
+                    <input type="text" class="form-control" id="surname" placeholder="Вашае імя па бацьку" ng-model="currentUser.surname">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" class="form-group c-input">
+                    <label for="email1">Email</label>
+                    <input type="email" class="form-control" id="email1" placeholder="Ваш email" ng-model="currentUser.email">
+                </td>
+            </tr>
+            <tr>
+                <td class="form-group c-input">
+                    <div class="radio">
+                        <label for="sex-f">
+                            <input id="sex-f" type="radio" name="sex"  ng-model="currentUser.gender" value="f"> Жанчына
+                        </label>
+                        <label for="sex-m">
+                            <input id="sex-m" type="radio" name="sex"  ng-model="currentUser.gender" value="m"> Мужчына
+                        </label>
+                    </div>
+                </td>
+                <td class="form-group c-input">
+                    <label for="birthday">Дзень народзінаў</label>
+                    <input id="birthday" class="form-control" type="date" ng-model="currentUser.dateOfBirth">
+                </td>
+                <td class="form-group c-input">
+                    <label for="country">Краіна</label>
+                    <input type="text" id="country" class="form-control" ng-model="currentUser.country">
+                </td>
+                <td class="form-group c-input">
+                    <label for="city">Горад</label>
+                    <input type="text" id="city" class="form-control" ng-model="currentUser.city">
+                </td>
+                <td class="form-group c-input">
+                    <label for="street">Вуліца</label>
+                    <input type="text" id="street" class="form-control" ng-model="currentUser.street">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h3>
+            Прафесійныя скілы
+        </h3>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <td class="c-label">Адукацыя</td>
+                <td class="c-label">Спецыяльнасць</td>
+                <td class="c-label">Праца</td>
+                <td class="c-label">Стаж</td>
+                <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="skill in currentUser.skills">
+                <td class="form-group c-input">
+                    <label for="university" class="sr-only"></label>
+                    <select ng-model="skill.university" class="form-control" id="university"
+                            ng-options="u.value as u.name for u in profData.universities">
+                        <option value="">Дзе вы навучаліся?</option>
+                    </select>
+                </td>
+                <td class="form-group c-input">
+                    <label for="speciality" class="sr-only"></label>
+                    <select class="form-control" id="speciality" ng-model="skill.speciality"
+                            ng-options="s.value as s.name for s in profData.specialities">
+                        <option value="">На каго вучыліся?</option>
+                    </select>
+                </td>
+                <td class="form-group c-input">
+                    <label for="job" class="sr-only"></label>
+                    <select class="form-control" id="job" class="sr-only" ng-model="skill.job"
+                            ng-options="j.value as j.name for j in profData.jobs">
+                        <option value="">Кім працуеце?</option>
+                    </select>
+                </td>
+                <td class="form-group c-input">
+                    <label for="experience" class="sr-only"></label>
+                    <select class="form-control" id="experience" ng-model="skill.experience"
+                            ng-options="e.value as e.name for e in profData.experience">
+                        <option value="">Як доўга?</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="center-block" title="Выдалиць" ng-click="currentUser.removeSkill(skill)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <p class="clearfix">
+            <a class="btn btn-link pull-right" ng-click="currentUser.addNewSkill()">+ Дадаць</a>
+        </p>
+    </section>
+    <section>
+        <h3>
+            Цікаўнасці
+        </h3>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <td class="c-label">Цікаўнасць</td>
+                <td class="c-label">Удакладненне (што канкрэтна робіце, дзе, як і г.д.)</td>
+                <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="interest in currentUser.interests">
+                <td class="form-group c-input">
+                    <label for="interests-list" class="sr-only"></label>
+                    <select class="form-control" id="interests-list" ng-model="interest.value" ng-options="i.value as i.name for i in interestsData">
+                        <option value="">Што вас цікавіць?</option>
+                    </select>
+                </td>
+                <td class="form-group c-input">
+                    <label for="interest" class="sr-only"></label>
+                    <input class="form-control" type="text" id="interest" ng-model="interest.descr">
+                </td>
+                <td>
+                    <button class="center-block" title="Выдалиць" ng-click="currentUser.removeInterest(interest)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <p class="clearfix">
+            <a class="btn btn-link pull-right" ng-click="currentUser.addNewInterest()">+ Дадаць</a>
+        </p>
+    </section>
+    <p class="clearfix space-block-t space-block-b">
+        <button class="btn btn-success btn-lg pull-right" ng-click="currentUser.update(currentUser)"> Захаваць змены</button>
+    </p>
+</div>

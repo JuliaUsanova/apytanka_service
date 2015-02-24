@@ -1,0 +1,85 @@
+.option-1{
+  background: #ffdc1c;
+}
+.option-2{
+  background: #ffa216;
+}
+.option-3{
+  background: #ff4b11;
+}
+.option-4{
+  background: #BC4398;
+}
+.option-5{
+  background: #7d24ff;
+}
+.option-6{
+  background: #1e63ff;
+}
+.option-7{
+  background: #2bceff;
+}
+.option-8{
+  background: #1cff9a;
+}
+.option-9{
+  background: #d4c0ff;
+}
+.option-10{
+  background: #E57FA7;
+}
+
+.pieContainer {
+  height: 300px;
+  margin-bottom: 35px;
+
+}
+.pieBackground {
+  background-color: grey;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  -moz-border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -o-border-radius: 150px;
+  border-radius: 150px;
+  -moz-box-shadow: -1px 1px 3px #000;
+  -webkit-box-shadow: -1px 1px 3px #000;
+  -o-box-shadow: -1px 1px 3px #000;
+  box-shadow: -1px 1px 3px #000;
+}
+
+.hold {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  -moz-border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -o-border-radius: 150px;
+  border-radius: 150px;
+  clip: rect(0px, 300px, 300px, 150px);
+
+
+  -webkit-transition: transform 0.2s linear;
+  -moz-transition: transform 0.2s linear;
+  -o-transition: transform 0.2s linear;
+  transition: transform 0.2s linear;
+
+
+  .pie {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    -moz-border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -o-border-radius: 150px;
+    border-radius: 150px;
+    clip: rect(0px, 150px, 300px, 0px);
+
+  }
+
+}
+
+.graph table{
+  width: 500px;
+}

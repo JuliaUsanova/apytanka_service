@@ -1,0 +1,57 @@
+.apytanka-body{
+//  border: 1px solid $light-grey;
+  background: rgba(255, 255, 255, 0.4);
+  margin: 15px 20px 10px 0;
+//  overflow: hidden;
+  @include transition(0.3s);
+  &:hover{
+    background: $light-blue;
+//    background: rgb(248, 248, 248);
+  }
+
+//    div{
+//      height: 100%;
+//    }
+
+    .logo-block{
+      padding: 3px;
+//      border-right: 1px solid $light-grey;
+      a{
+        text-decoration: none;
+        border-bottom: 1px dashed;
+      }
+    }
+
+    .results{
+      display: table;
+      height: 100%;
+      padding: 0;
+
+//      >div:first-of-type{
+//        border-right: 1px solid $light-grey;
+//      }
+
+      div{
+        padding: 0;
+      }
+
+      hr{
+        margin-top: 12px;
+        margin-bottom: 10px;
+      }
+
+      a{
+        text-decoration: none;
+        border-bottom: 0;
+        &:hover{
+          color: $orange;
+        }
+      }
+
+    }
+
+//  & + &{
+//    margin-top: -1px;
+//  }
+
+}

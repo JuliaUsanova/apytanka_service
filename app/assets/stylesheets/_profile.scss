@@ -1,0 +1,65 @@
+  .user-info-body{
+    position: relative;
+    padding: 0;
+    height: 550px;
+    overflow: hidden;
+
+    .user-info{
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      padding: 4% 14%;
+      color: white;
+      h1{
+        color: white;
+      }
+
+      &:after {
+        position: absolute;
+        z-index: -1;
+        content: "";
+        display: block;
+        background: darken($orange, 50%);
+        top: 0;
+        left: 0;
+        height: 550px;
+        width: 100%;
+        opacity: 0.9;
+      }
+
+      .img-circle.user-photo{
+        border: 7px solid transparentize($orange, 0.43);
+        width: 150px;
+        height: 150px;
+        display: block;
+      }
+
+      .tab-pane-c{
+        height: 90px;
+      }
+      a{
+        color: white;
+        font-size: 2em;
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        line-height: 65px;
+        &+a{
+          margin-left: 2%;
+        }
+        &:hover{
+          background: transparentize($orange, 0.43);;
+        }
+      }
+    }
+
+    .background-image{
+      width: 100%;
+      z-index: -2;
+      opacity: 0.15;
+
+    }
+  }

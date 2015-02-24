@@ -1,0 +1,44 @@
+
+    <nav class="navbar">
+        <div class="clearfix top-nav">
+            <div id="logo" class="clearfix">
+                <a href="/"><p class="pull-left logo">Apytanka.by</p></a>
+                <p class="pull-right">
+                    <a class="login" id="login" ng-hide="currentUser.name"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Войти</a>
+                    <a class="login" ng-show="currentUser.name" href="/profile/{{currentUser.id}}/edit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{currentUser.name}}
+                        <span class="user-photo img-circle"><img ng-src="{{currentUser.avatar}}"></span>
+                    </a>
+                </p>
+            </div>
+            <div class="clearfix">
+                <div class="clearfix sublogo col-sm-6 col-xs-12">
+                    <small>Ваше<b class="dot">.</b>мнение<b class="dot">.</b>имеет<b class="dot">.</b>значение!</small>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <div class="btn-group pull-left winner-block col-sm-9 col-xs-7" role="group" >
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-star"></span> Зоркі праекта
+                        </button>
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-gift"></span> Падарункі
+                        </button>
+                    </div>
+                    <div class="btn-group pull-right col-sm-3 col-xs-5">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            Катэгорыі <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                            <li><a><span class="glyphicon glyphicon-headphones"></span>  Забавы</a></li>
+                            <li><a><span class="glyphicon glyphicon-heart-empty"></span>  Здароўе</a></li>
+                            <li><a><span class="glyphicon glyphicon-briefcase"></span>  Бізнэс</a></li>
+                            <li><a><span class="glyphicon glyphicon-road"></span>  Падарожжы</a></li>
+                            <li><a><span class="glyphicon glyphicon-th-large"></span>  Іншае</a></li>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>

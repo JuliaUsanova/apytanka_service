@@ -1,0 +1,29 @@
+#main .apytanka-page{
+  position: relative;
+
+  &:before{
+    height: 550px;
+    background-color: transparentize($background-image, 0.4);
+    z-index: -1;
+    width: 100%;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("mapamundi.jpg");
+    width: 100%;
+    opacity : 0.8;
+    z-index: -2;
+    height: 550px;
+  }
+}
+
