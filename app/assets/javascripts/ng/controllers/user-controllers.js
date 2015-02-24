@@ -92,7 +92,7 @@
 //        });
 
         $scope.chosenUser = {
-            id: 1, name: 'User', surname: 'Userov', email: 'user@gmail.com', avatar: 'css/images/563469251.png', gender: 'f',
+            id: 1, name: 'User', surname: 'Userov', email: 'user@gmail.com', avatar: '563469251.png', gender: 'f',
             dateOfBirth: 634600800000, country: 'Belarus', city: 'Minsk', street: 'Russianova',
             skills: [
                 {university: 0, speciality: 1, job: 4, experience: 0},
