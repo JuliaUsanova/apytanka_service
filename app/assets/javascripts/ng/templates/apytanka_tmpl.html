@@ -1,6 +1,6 @@
 <div class="clearfix apytanka-body">
     <div class="col-xs-3 col-sm-1 logo-block">
-        <a ng-href="profile/{{apytanka.user.id}}">
+        <a ng-href="/profile/{{apytanka.user.id}}">
             <img ng-src="{{apytanka.user.avatar}}" class="img-responsive">
             <cite class="text-muted author small">
                 {{apytanka.user.name + ' ' + apytanka.user.surname}}
@@ -8,7 +8,7 @@
         </a>
     </div>
     <div class="col-xs-7 col-sm-10 descr-block">
-        <h4><a ng-href="apytanka/{{apytanka.id}}">{{apytanka.title}}
+        <h4><a ng-href="/apytanka/{{apytanka.id}}">{{apytanka.title}}
             <br><small>{{apytanka.user.country.name}}, {{apytanka.user.city}}, {{apytanka.date}} </small></a></h4>
 
         <div>
