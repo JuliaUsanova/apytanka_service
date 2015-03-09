@@ -52,8 +52,8 @@
       <file leaf-file-name="production.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6950673" vertical-offset="0" max-vertical-offset="1275">
-              <caret line="31" column="30" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.22421524" vertical-offset="0" max-vertical-offset="1275">
+              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -951,8 +951,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6950673" vertical-offset="0" max-vertical-offset="1275">
-          <caret line="31" column="30" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.22421524" vertical-offset="0" max-vertical-offset="1275">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
           <folding />
         </state>
       </provider>
