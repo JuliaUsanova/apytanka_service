@@ -57,31 +57,31 @@
         var user = new User();
 
         var registered = false;
-
-        function downloadUserData(url, method, data){
-
-//            $http.get(url, {method: data}).success(function(){
-
-            setUser (data);
-
-            return registered;
-
-//            });
-        };
-
-        function setUser (data){
-            for (var k in user){
-                if (user.hasOwnProperty(k)) {
-                    if(k == 'dateOfBirth'){
-                        user[k] = new Date(data[k]);
-                    }
-                    else user[k] = data[k];
-                }
-            };
-            registered = true;
-
-
-        };
+//
+//        function downloadUserData(url, method, data){
+//
+////            $http.get(url, {method: data}).success(function(){
+//
+//            setUser (data);
+//
+//            return registered;
+//
+////            });
+//        };
+//
+//        function setUser (data){
+//            for (var k in user){
+//                if (user.hasOwnProperty(k)) {
+//                    if(k == 'dateOfBirth'){
+//                        user[k] = new Date(data[k]);
+//                    }
+//                    else user[k] = data[k];
+//                }
+//            };
+//            registered = true;
+//
+//
+//        };
 
         var userData = {
             id: 1, name: 'User', surname: 'Userov', email: 'user@gmail.com', avatar: '/assets/563469251.png', gender: 'f',
@@ -95,11 +95,12 @@
 
         this.loginUser = function(data){
             data = userData;
-            if (downloadUserData('login', 'loginUser', data)) return true;
+            //if (downloadUserData('login', 'loginUser', data)) return true;
         };
 
-        this.registerUser = function(data){
-            if (downloadUserData('register', 'registerUser', data)) return true;
+        this.registerUser = function(){
+            registered = true;
+            //if (downloadUserData('register', 'registerUser', data)) return true;
         };
 
         this.isRegistered = function(){

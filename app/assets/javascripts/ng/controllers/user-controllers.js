@@ -6,25 +6,27 @@
 
     var userControllers = angular.module('user');
 
-    userControllers.controller('loginCtrl', ['$scope', 'userService', '$element', function($scope, userService, $element){
+    userControllers.controller('loginCtrl', ['$scope', 'userService', 'userApi', function($scope, userService, userApi){
 
         $scope.registered = userService.isRegistered();
 
-        $scope.userData = {email: '', psw: '', name: '', surname: ''};
+        $scope.user = {email: '', password: '', password_confirmation: '123', name: '', surname: '', sex: '1'};
 
         $scope.logIn = function(){
 
-            var result = userService.loginUser($scope.userData);
-
-            if($element.hasClass('modal') && result) jQuery('#' + $element.attr('id')).modal('hide');
+            var result = userService.loginUser($scope.user);
 
         };
 
         $scope.register = function(){
 
-            var result = userService.registerUser($scope.userData);
-
-            if($element.hasClass('modal') && result) jQuery('#' + $element.attr('id')).modal('hide');
+            var user = new userApi($scope.user);
+            user.$save(function(data){
+                var result = userService.registerUser();
+            },
+            function(data){
+                var errorMessage = data;
+            });
 
         };
 
