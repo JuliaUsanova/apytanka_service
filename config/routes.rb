@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   root 'apytanka#index'
 
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create, :edit, :show, :update, :destroy]
     resources :apytanka, only: [:create, :index, :show, :update, :destroy]
   end
+
+  post   'api/login'   => 'api/sessions#create'
+  delete 'api/logout'  => 'api/sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

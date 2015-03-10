@@ -6,15 +6,30 @@
 
     var userControllers = angular.module('user');
 
-    userControllers.controller('loginCtrl', ['$scope', 'userService', 'userApi', function($scope, userService, userApi){
+    userControllers.controller('loginCtrl', ['$scope', 'userService', 'userApi', 'sessionApi',
+        function($scope, userService, userApi, sessionApi){
 
         $scope.serverValidation = {};
 
         $scope.registered = userService.isRegistered();
 
-        $scope.user = {email: '', password: '', password_confirmation: '123', name: '', surname: '', sex: '1'};
+        $scope.user = {email: '', password: '', name: '', surname: '', sex: '1'};
 
         $scope.logIn = function(){
+
+            var user = { email: $scope.user.email, password: $scope.user.password };
+
+            var session = new sessionApi(user);
+
+            session.$save(function(data){
+                if(data.errors){
+                    $scope.serverValidation.failed = true;
+                    $scope.serverValidation.errors = data.errors;
+                    return;
+                }
+                var result = userService.registerUser(data);
+                $scope.serverValidation.failed = true;
+            });
 
             var result = userService.loginUser($scope.user);
 
@@ -30,6 +45,7 @@
                     return;
                 }
                 var result = userService.registerUser(data);
+                $scope.serverValidation.failed = true;
             });
         };
 

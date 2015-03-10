@@ -1,0 +1,7 @@
+(function(){
+    angular.module('myApp').factory('sessionApi', ['$resource', function($resource){
+        return $resource('/api/sessions', {
+
+        })
+    }])
+})();
