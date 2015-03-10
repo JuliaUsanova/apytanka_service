@@ -17,22 +17,18 @@
 
         $scope.logIn = function(){
 
-            var user = { email: $scope.user.email, password: $scope.user.password };
+            var session = { email: $scope.user.email, password: $scope.user.password };
+            var sessionResource = new sessionApi(session);
 
-            var session = new sessionApi(user);
-
-            session.$save(function(data){
+            sessionResource.$save(function(data){
                 if(data.errors){
                     $scope.serverValidation.failed = true;
                     $scope.serverValidation.errors = data.errors;
                     return;
                 }
-                var result = userService.registerUser(data);
-                $scope.serverValidation.failed = true;
+                var result = userService.setUser(data.user);
+                $scope.serverValidation.failed = false;
             });
-
-            var result = userService.loginUser($scope.user);
-
         };
 
         $scope.register = function(){
@@ -44,8 +40,8 @@
                     $scope.serverValidation.errors = data.errors;
                     return;
                 }
-                var result = userService.registerUser(data);
-                $scope.serverValidation.failed = true;
+                var result = userService.setUser(data.user);
+                $scope.serverValidation.failed = false;
             });
         };
 

@@ -101,16 +101,17 @@
             interests: [{value: 0, descr: 'tra ta ta'},{value: 1, descr: 'like to listen the music'},{value: 4, descr: 'do sport every day'},{value: 5, descr: ''}]
         };
 
-        this.loginUser = function(data){
-            data = userData;
+        this.setUser = function(data){
+            user (data);
+            registered = true;
             //if (downloadUserData('login', 'loginUser', data)) return true;
         };
 
-        this.registerUser = function(data){
-            user (data);
-            registered = true;
-            //if (downloadUserData('register', 'registerUser', data)) return true;
-        };
+        //this.registerUser = function(data){
+        //    user (data);
+        //    registered = true;
+        //    //if (downloadUserData('register', 'registerUser', data)) return true;
+        //};
 
         this.isRegistered = function(){
             return registered;

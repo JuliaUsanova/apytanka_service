@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
     BCrypt::Password.create(string, cost: cost)
   end
 
+  def logged_in?
+    self.id == session[:user_id]
+  end
+
   private
 
   def downcase_email

@@ -1,9 +1,8 @@
-module Api
-
-  class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
   def create
     user = User.new(safe_params)
     if user.save
+      log_in(user)
       render json: user
     else
       render json: {errors: user.errors.full_messages}
@@ -25,4 +24,3 @@ module Api
 
 end
 
-end
