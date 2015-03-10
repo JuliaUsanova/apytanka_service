@@ -54,7 +54,15 @@
             return UserClass;
 
         })();
-        var user = new User();
+        var user = (function(data){
+            var current = {};
+            return function(data){
+                if (data) {
+                    current = new User(data);
+                }
+                return current
+            };
+        })();
 
         var registered = false;
 //
@@ -98,7 +106,8 @@
             //if (downloadUserData('login', 'loginUser', data)) return true;
         };
 
-        this.registerUser = function(){
+        this.registerUser = function(data){
+            user (data);
             registered = true;
             //if (downloadUserData('register', 'registerUser', data)) return true;
         };
@@ -108,7 +117,7 @@
         };
 
         this.getUser = function(){
-            return user;
+            return user();
         };
 
         this.changeAvatar  = function(link){

@@ -8,6 +8,8 @@
 
     userControllers.controller('loginCtrl', ['$scope', 'userService', 'userApi', function($scope, userService, userApi){
 
+        $scope.serverValidation = {};
+
         $scope.registered = userService.isRegistered();
 
         $scope.user = {email: '', password: '', password_confirmation: '123', name: '', surname: '', sex: '1'};
@@ -22,12 +24,13 @@
 
             var user = new userApi($scope.user);
             user.$save(function(data){
-                var result = userService.registerUser();
-            },
-            function(data){
-                var errorMessage = data;
+                if(data.errors){
+                    $scope.serverValidation.failed = true;
+                    $scope.serverValidation.errors = data.errors;
+                    return;
+                }
+                var result = userService.registerUser(data);
             });
-
         };
 
     }]);

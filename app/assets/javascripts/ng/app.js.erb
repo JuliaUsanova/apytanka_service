@@ -93,7 +93,10 @@
 
     app.controller('appCtrl', ['$scope', '$timeout','userService', function($scope, $timeout, userService){
 
-        $scope.currentUser = userService.getUser();
+        $scope.$watch(userService.getUser, function( newVal ){
+            console.log(newVal);
+            $scope.currentUser = newVal;
+        });
 
     }]);
 
