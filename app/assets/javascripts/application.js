@@ -30,4 +30,4 @@
 
 //= require ng/app.js.erb
 
-//= require_tree .
+
