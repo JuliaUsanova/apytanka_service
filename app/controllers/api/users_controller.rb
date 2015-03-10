@@ -1,7 +1,6 @@
 module Api
 
   class UsersController < ApplicationController
-
   def create
     user = User.new(safe_params)
     if user.save
