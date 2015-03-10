@@ -30,7 +30,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'responders', '~> 2.0'
 
 # Use ActiveModel has_secure_password
- gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+
+gem 'active_model_serializers', '~> 0.8.x'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

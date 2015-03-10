@@ -4,7 +4,6 @@ module Api
 
   def create
     user = User.new(safe_params)
-    byebug
     if user.save
       render json: user
     else
