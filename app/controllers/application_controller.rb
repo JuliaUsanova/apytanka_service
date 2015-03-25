@@ -6,4 +6,10 @@ class ApplicationController < ActionController::Base
 
   def index
   end
+
+  protected
+  def handle_error
+    redirect_to root_url
+  end
+
 end

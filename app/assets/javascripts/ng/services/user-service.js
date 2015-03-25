@@ -15,45 +15,39 @@
                 this.name = data ? data.name : null;
                 this.surname = data ? data.surname : null;
                 this.email = data ? data.email : null;
-                this.gender = data ? data.gender : null;
-                this.dateOfBirth = data ? new Date(data.dateOfBirth) : new Date();
-                this.country = data ? data.country : null;
-                this.city = data ? data.city : null;
-                this.street = data ? data.street : null;
-                this.skills = data ? data.skills : [{value: '', name: ''}];
-                this.interests = data ? data.interests : [{value: '', descr: ''}];
+                this.sex = data ? data.sex : 1;
+                this.birthday = data ? new Date(data.birthday) : new Date();
+                this.address_attributes = data.address_attributes;
+                this.skills_attributes = data.skills_attributes;
                 this.avatar = data ? data.avatar : 'assets/default-user-image.png';
                 this.newAvatar = null;
             }
 
+            UserClass.prototype.isRegistered = (function(result){
+                var state = false;
+
+                return function(result){
+                    if ( result ) state = result;
+                    return state;
+                };
+            })();
+
             UserClass.prototype.addNewSkill = function(){
-                this.skills.push({});
+                this.skills_attributes.push({});
             };
 
-            UserClass.prototype.addNewInterest = function(){
-                this.interests.push({});
-            };
 
             UserClass.prototype.removeSkill = function(skill){
                 var index = this.skills.indexOf(skill);
-                this.skills.splice(index, 1);
+                this.skills_attributes.splice(index, 1);
             };
 
-            UserClass.prototype.removeInterest = function(interest){
-                var index = this.interests.indexOf(interest);
-                this.interests.splice(index, 1);
-            };
 
-            UserClass.prototype.update = function(data){
-                if (this.id == data.id) {
-                    data.avatar = data.newAvatar;
-                    setUser(data);
-                }
-            };
 
             return UserClass;
 
         })();
+
         var user = (function(data){
             var current = {};
             return function(data){
@@ -64,8 +58,7 @@
             };
         })();
 
-        var registered = false;
-//
+  //
 //        function downloadUserData(url, method, data){
 //
 ////            $http.get(url, {method: data}).success(function(){
@@ -103,7 +96,7 @@
 
         this.setUser = function(data){
             user (data);
-            registered = true;
+            if ( !user().isRegistered() ) user().isRegistered(true);
             //if (downloadUserData('login', 'loginUser', data)) return true;
         };
 
@@ -113,9 +106,6 @@
         //    //if (downloadUserData('register', 'registerUser', data)) return true;
         //};
 
-        this.isRegistered = function(){
-            return registered;
-        };
 
         this.getUser = function(){
             return user();

@@ -33,7 +33,14 @@
                 when('/profile/:id/edit/about', {
                     templateUrl: 'ng/templates/profile-edit.html',
                     action: 'profile.about',
-                    controller: 'profileCtrl'
+                    controller: 'profileCtrl',
+                    resolve: {
+                            user: function(userApi, userService){
+                                return userApi.get({id: userService.getUser().id, action: 'edit'}).$promise.then(function(result){
+                                    if (!result.errors ) return userService.setUser(result.full_user);
+                                });
+                            }
+                        }
                 }).
                 when('/profile/:id/edit/apytanki?:params', {
                     templateUrl: 'ng/templates/profile-edit.html',
@@ -94,8 +101,8 @@
     app.controller('appCtrl', ['$scope', '$timeout','userService', function($scope, $timeout, userService){
 
         $scope.$watch(userService.getUser, function( newVal ){
-            console.log(newVal);
             $scope.currentUser = newVal;
+            console.log('reg');
         });
 
     }]);

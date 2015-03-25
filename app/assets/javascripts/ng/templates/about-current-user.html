@@ -34,28 +34,28 @@
                 <td class="form-group c-input">
                     <div class="radio">
                         <label for="sex-f">
-                            <input id="sex-f" type="radio" name="sex"  ng-model="currentUser.gender" value="f"> Жанчына
+                            <input id="sex-f" type="radio" name="sex"  ng-model="currentUser.sex" value="0"> Жанчына
                         </label>
                         <label for="sex-m">
-                            <input id="sex-m" type="radio" name="sex"  ng-model="currentUser.gender" value="m"> Мужчына
+                            <input id="sex-m" type="radio" name="sex"  ng-model="currentUser.sex" value="1"> Мужчына
                         </label>
                     </div>
                 </td>
                 <td class="form-group c-input">
                     <label for="birthday">Дзень народзінаў</label>
-                    <input id="birthday" class="form-control" type="date" ng-model="currentUser.dateOfBirth">
+                    <input id="birthday" class="form-control" type="date" ng-model="currentUser.birthday">
                 </td>
                 <td class="form-group c-input">
                     <label for="country">Краіна</label>
-                    <input type="text" id="country" class="form-control" ng-model="currentUser.country">
+                    <input type="text" id="country" class="form-control" ng-model="currentUser.address_attributes.country">
                 </td>
                 <td class="form-group c-input">
                     <label for="city">Горад</label>
-                    <input type="text" id="city" class="form-control" ng-model="currentUser.city">
+                    <input type="text" id="city" class="form-control" ng-model="currentUser.address_attributes.city">
                 </td>
                 <td class="form-group c-input">
                     <label for="street">Вуліца</label>
-                    <input type="text" id="street" class="form-control" ng-model="currentUser.street">
+                    <input type="text" id="street" class="form-control" ng-model="currentUser.address_attributes.street">
                 </td>
             </tr>
             </tbody>
@@ -76,10 +76,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="skill in currentUser.skills">
+            <tr ng-repeat="skill in currentUser.skills_attributes">
                 <td class="form-group c-input">
                     <label for="university" class="sr-only"></label>
-                    <select ng-model="skill.university" class="form-control" id="university"
+                    <select ng-model="skill.education" class="form-control" id="university"
                             ng-options="u.value as u.name for u in profData.universities">
                         <option value="">Дзе вы навучаліся?</option>
                     </select>
@@ -117,43 +117,7 @@
             <a class="btn btn-link pull-right" ng-click="currentUser.addNewSkill()">+ Дадаць</a>
         </p>
     </section>
-    <section>
-        <h3>
-            Цікаўнасці
-        </h3>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <td class="c-label">Цікаўнасць</td>
-                <td class="c-label">Удакладненне (што канкрэтна робіце, дзе, як і г.д.)</td>
-                <td></td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="interest in currentUser.interests">
-                <td class="form-group c-input">
-                    <label for="interests-list" class="sr-only"></label>
-                    <select class="form-control" id="interests-list" ng-model="interest.value" ng-options="i.value as i.name for i in interestsData">
-                        <option value="">Што вас цікавіць?</option>
-                    </select>
-                </td>
-                <td class="form-group c-input">
-                    <label for="interest" class="sr-only"></label>
-                    <input class="form-control" type="text" id="interest" ng-model="interest.descr">
-                </td>
-                <td>
-                    <button class="center-block" title="Выдалиць" ng-click="currentUser.removeInterest(interest)">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <p class="clearfix">
-            <a class="btn btn-link pull-right" ng-click="currentUser.addNewInterest()">+ Дадаць</a>
-        </p>
-    </section>
     <p class="clearfix space-block-t space-block-b">
-        <button class="btn btn-success btn-lg pull-right" ng-click="currentUser.update(currentUser)"> Захаваць змены</button>
+        <button class="btn btn-success btn-lg pull-right" ng-click="update(currentUser)"> Захаваць змены</button>
     </p>
 </div>

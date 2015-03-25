@@ -11,7 +11,7 @@
 
         $scope.serverValidation = {};
 
-        $scope.registered = userService.isRegistered();
+        $scope.registered = false;
 
         $scope.user = {email: '', password: '', name: '', surname: '', sex: '1'};
 
@@ -26,7 +26,7 @@
                     $scope.serverValidation.errors = data.errors;
                     return;
                 }
-                var result = userService.setUser(data.user);
+                userService.setUser(data.user);
                 $scope.serverValidation.failed = false;
             });
         };
@@ -40,14 +40,14 @@
                     $scope.serverValidation.errors = data.errors;
                     return;
                 }
-                var result = userService.setUser(data.user);
+                userService.setUser(data.user);
                 $scope.serverValidation.failed = false;
             });
         };
 
     }]);
 
-    userControllers.controller('profileCtrl', ['$scope', 'userService', function($scope, userService){
+    userControllers.controller('profileCtrl', ['$scope', 'userService', 'userApi', function($scope, userService, userApi){
 
         $scope.selectFile = function(){
             jQuery('#fileselect').click();
@@ -80,6 +80,15 @@
 
             }
 
+        };
+
+        $scope.update = function(data){
+            if (userService.getUser().id == data.id) {
+                //data.avatar = data.newAvatar;
+                userApi.update( {id: data.id}, {user: userService.getUser()}, function(response) {
+                    if ( response.result ) userService.setUser(data);
+                });
+            }
         };
 
         $scope.profData = {
