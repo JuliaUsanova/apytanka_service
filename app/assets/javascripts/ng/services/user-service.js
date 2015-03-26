@@ -6,7 +6,7 @@
 
     var userMod = angular.module('user');
 
-    userMod.service('userService', ['$http', function($http){
+    userMod.service('userService', function(){
 
         var User = (function(){
 
@@ -36,13 +36,10 @@
                 this.skills_attributes.push({});
             };
 
-
             UserClass.prototype.removeSkill = function(skill){
                 var index = this.skills.indexOf(skill);
                 this.skills_attributes.splice(index, 1);
             };
-
-
 
             return UserClass;
 
@@ -57,32 +54,6 @@
                 return current
             };
         })();
-
-  //
-//        function downloadUserData(url, method, data){
-//
-////            $http.get(url, {method: data}).success(function(){
-//
-//            setUser (data);
-//
-//            return registered;
-//
-////            });
-//        };
-//
-//        function setUser (data){
-//            for (var k in user){
-//                if (user.hasOwnProperty(k)) {
-//                    if(k == 'dateOfBirth'){
-//                        user[k] = new Date(data[k]);
-//                    }
-//                    else user[k] = data[k];
-//                }
-//            };
-//            registered = true;
-//
-//
-//        };
 
         var userData = {
             id: 1, name: 'User', surname: 'Userov', email: 'user@gmail.com', avatar: '/assets/563469251.png', gender: 'f',
@@ -100,12 +71,6 @@
             //if (downloadUserData('login', 'loginUser', data)) return true;
         };
 
-        //this.registerUser = function(data){
-        //    user (data);
-        //    registered = true;
-        //    //if (downloadUserData('register', 'registerUser', data)) return true;
-        //};
-
 
         this.getUser = function(){
             return user();
@@ -115,6 +80,6 @@
             user.newAvatar = link;
         };
 
-    }]);
+    });
 
 })();

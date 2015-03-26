@@ -3,7 +3,7 @@
  */
 (function(){
 
-    var app = angular.module('customDirectives', []);
+    var app = angular.module('customDirectives');
 
     app.directive('customOnChange', ['$timeout', function($timeout) {
         'use strict';

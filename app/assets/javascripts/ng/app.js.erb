@@ -17,7 +17,16 @@
 
             $routeProvider.
                 when('/', {
-                    templateUrl: 'ng/templates/home.html'
+                    templateUrl: 'ng/templates/home.html',
+                        resolve: {
+                            user: function (userService) {
+                                var User = $resource('/current_user');
+
+                                return User.get().$promise.then(function (result) {
+                                    if (!result.errors) return userService.setUser(result.user);
+                                });
+                            }
+                        }
                 }).
                 when('/profile/:id?:params', {
                     templateUrl: 'ng/templates/profile.html',
@@ -35,7 +44,7 @@
                     action: 'profile.about',
                     controller: 'profileCtrl',
                     resolve: {
-                            user: function(userApi, userService){
+                            user: function(userApi, userService, $routeParams){
                                 return userApi.get({id: userService.getUser().id, action: 'edit'}).$promise.then(function(result){
                                     if (!result.errors ) return userService.setUser(result.full_user);
                                 });
@@ -98,7 +107,7 @@
 
     }]);
 
-    app.controller('appCtrl', ['$scope', '$timeout','userService', function($scope, $timeout, userService){
+    app.controller('appCtrl', ['$scope','userService', function($scope, userService){
 
         $scope.$watch(userService.getUser, function( newVal ){
             $scope.currentUser = newVal;
