@@ -1,14 +1,14 @@
 class ApytankaController < ApplicationController
 
-  respond_to :json
-
   def index
 
   end
 
   def home
-    byebug
-    render json: current_user, serializer: Api::UserSerializer
+    unless current_user.nil?
+    render json: current_user, serializer: Api::UserSerializer  and return
+    end
+    render nothing: true if current_user.nil?
   end
 
 end

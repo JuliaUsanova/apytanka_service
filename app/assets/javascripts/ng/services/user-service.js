@@ -11,15 +11,15 @@
         var User = (function(){
 
             function UserClass ( data ) {
-                this.id = data ? data.id : null;
-                this.name = data ? data.name : null;
-                this.surname = data ? data.surname : null;
-                this.email = data ? data.email : null;
-                this.sex = data ? data.sex : 1;
-                this.birthday = data ? new Date(data.birthday) : new Date();
-                this.address_attributes = data.address_attributes;
-                this.skills_attributes = data.skills_attributes;
-                this.avatar = data ? data.avatar : 'assets/default-user-image.png';
+                this.id = data.id || null;
+                this.name = data.name || null;
+                this.surname = data.surname || null;
+                this.email = data.email || null;
+                this.sex = data.sex || 1;
+                this.birthday = new Date(data.birthday) || new Date();
+                this.address_attributes = data.address_attributes || null;
+                this.skills_attributes = data.skills_attributes || null;
+                this.avatar = data.avatar || '/assets/default-user-image.png';
                 this.newAvatar = null;
             }
 
@@ -46,9 +46,9 @@
         })();
 
         var user = (function(data){
-            var current = {};
+            var current = new User({});
             return function(data){
-                if (data) {
+                if ( data ) {
                     current = new User(data);
                 }
                 return current
@@ -67,10 +67,9 @@
 
         this.setUser = function(data){
             user (data);
-            if ( !user().isRegistered() ) user().isRegistered(true);
+            if ( !user().isRegistered() && data ) user().isRegistered(true);
             //if (downloadUserData('login', 'loginUser', data)) return true;
         };
-
 
         this.getUser = function(){
             return user();
@@ -79,6 +78,9 @@
         this.changeAvatar  = function(link){
             user.newAvatar = link;
         };
+
+        this.userFactory =  User;
+
 
     });
 

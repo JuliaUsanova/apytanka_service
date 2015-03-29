@@ -7,55 +7,55 @@
             <tbody>
             <tr>
                 <td rowspan="2">
-                    <img ng-src="{{currentUser.avatar}}" width="180" ng-show="currentUser.avatar && !currentUser.newAvatar">
-                    <img ng-src="{{currentUser.newAvatar}}" width="180" ng-show="currentUser.avatar && currentUser.newAvatar">
+                    <img ng-src="{{user.avatar}}" width="180" ng-show="user.avatar && !user.newAvatar">
+                    <img ng-src="{{user.newAvatar}}" width="180" ng-show="user.avatar && user.newAvatar">
                     <div>
                         <a ng-click="selectFile()"><span class="glyphicon glyphicon-camera"></span> Запампаваць фота</a>
                         <input type="file" id="fileselect" value="" class="ng-hide" custom-on-change handler="setAvatar(params)"
-                               ng-model="currentUser.avatar">
+                               ng-model="user.avatar">
                     </div>
                 </td>
                 <td colspan="2" class="form-group c-input">
                     <label for="name">Імя</label>
-                    <input type="text" class="form-control" id="name" placeholder="Вашае імя" ng-model="currentUser.name">
+                    <input type="text" class="form-control" id="name" placeholder="Вашае імя" ng-model="user.name">
                 </td>
                 <td colspan="2" class="form-group c-input">
                     <label for="surname">Імя па бацьку</label>
-                    <input type="text" class="form-control" id="surname" placeholder="Вашае імя па бацьку" ng-model="currentUser.surname">
+                    <input type="text" class="form-control" id="surname" placeholder="Вашае імя па бацьку" ng-model="user.surname">
                 </td>
             </tr>
             <tr>
                 <td colspan="4" class="form-group c-input">
                     <label for="email1">Email</label>
-                    <input type="email" class="form-control" id="email1" placeholder="Ваш email" ng-model="currentUser.email">
+                    <input type="email" class="form-control" id="email1" placeholder="Ваш email" ng-model="user.email">
                 </td>
             </tr>
             <tr>
                 <td class="form-group c-input">
                     <div class="radio">
                         <label for="sex-f">
-                            <input id="sex-f" type="radio" name="sex"  ng-model="currentUser.sex" value="0"> Жанчына
+                            <input id="sex-f" type="radio" name="sex"  ng-model="user.sex" value="0"> Жанчына
                         </label>
                         <label for="sex-m">
-                            <input id="sex-m" type="radio" name="sex"  ng-model="currentUser.sex" value="1"> Мужчына
+                            <input id="sex-m" type="radio" name="sex"  ng-model="user.sex" value="1"> Мужчына
                         </label>
                     </div>
                 </td>
                 <td class="form-group c-input">
                     <label for="birthday">Дзень народзінаў</label>
-                    <input id="birthday" class="form-control" type="date" ng-model="currentUser.birthday">
+                    <input id="birthday" class="form-control" type="date" ng-model="user.birthday">
                 </td>
                 <td class="form-group c-input">
                     <label for="country">Краіна</label>
-                    <input type="text" id="country" class="form-control" ng-model="currentUser.address_attributes.country">
+                    <input type="text" id="country" class="form-control" ng-model="user.address_attributes.country">
                 </td>
                 <td class="form-group c-input">
                     <label for="city">Горад</label>
-                    <input type="text" id="city" class="form-control" ng-model="currentUser.address_attributes.city">
+                    <input type="text" id="city" class="form-control" ng-model="user.address_attributes.city">
                 </td>
                 <td class="form-group c-input">
                     <label for="street">Вуліца</label>
-                    <input type="text" id="street" class="form-control" ng-model="currentUser.address_attributes.street">
+                    <input type="text" id="street" class="form-control" ng-model="user.address_attributes.street">
                 </td>
             </tr>
             </tbody>
@@ -76,7 +76,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="skill in currentUser.skills_attributes">
+            <tr ng-repeat="skill in user.skills_attributes">
                 <td class="form-group c-input">
                     <label for="university" class="sr-only"></label>
                     <select ng-model="skill.education" class="form-control" id="university"
@@ -106,7 +106,7 @@
                     </select>
                 </td>
                 <td>
-                    <button class="center-block" title="Выдалиць" ng-click="currentUser.removeSkill(skill)">
+                    <button class="center-block" title="Выдалиць" ng-click="user.removeSkill(skill)">
                         <span class="glyphicon glyphicon-trash"></span>
                     </button>
                 </td>
@@ -114,10 +114,10 @@
             </tbody>
         </table>
         <p class="clearfix">
-            <a class="btn btn-link pull-right" ng-click="currentUser.addNewSkill()">+ Дадаць</a>
+            <a class="btn btn-link pull-right" ng-click="user.addNewSkill()">+ Дадаць</a>
         </p>
     </section>
     <p class="clearfix space-block-t space-block-b">
-        <button class="btn btn-success btn-lg pull-right" ng-click="update(currentUser)"> Захаваць змены</button>
+        <button class="btn btn-success btn-lg pull-right" ng-click="update(user)"> Захаваць змены</button>
     </p>
 </div>

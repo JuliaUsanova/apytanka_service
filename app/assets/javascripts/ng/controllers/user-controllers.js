@@ -47,7 +47,9 @@
 
     }]);
 
-    userControllers.controller('profileCtrl', ['$scope', 'userService', 'userApi', function($scope, userService, userApi){
+    userControllers.controller('profileCtrl', ['$scope', 'userService', 'userApi', 'user_data', function($scope, userService, userApi, user_data){
+
+        $scope.user = new userService.userFactory(user_data);
 
         $scope.selectFile = function(){
             jQuery('#fileselect').click();
@@ -85,7 +87,7 @@
         $scope.update = function(data){
             if (userService.getUser().id == data.id) {
                 //data.avatar = data.newAvatar;
-                userApi.update( {id: data.id}, {user: userService.getUser()}, function(response) {
+                userApi.update( {id: data.id}, {user: data}, function(response) {
                     if ( response.result ) userService.setUser(data);
                 });
             }

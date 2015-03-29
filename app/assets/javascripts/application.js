@@ -27,7 +27,6 @@
 //= require_tree ./ng/directives
 //= require_tree ./ng/controllers
 
-
-//= require ng/app.js.erb
+//= require ng/app_module.js.erb
 
 //= require_tree .
