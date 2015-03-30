@@ -13,11 +13,11 @@
 
         $scope.registered = false;
 
-        $scope.user = {email: '', password: '', name: '', surname: '', sex: '1'};
+        $scope.user = {email: '', password: '', name: '', surname: '', sex: '1', remember_me: false};
 
         $scope.logIn = function(){
 
-            var session = { email: $scope.user.email, password: $scope.user.password };
+            var session = { email: $scope.user.email, password: $scope.user.password, remember_me: $scope.user.remember_me ? '1' : '0'};
             var sessionResource = new sessionApi(session);
 
             sessionResource.$save(function(data){

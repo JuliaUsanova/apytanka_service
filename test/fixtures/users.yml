@@ -6,3 +6,11 @@ andy:
  email: hopins@andy.com
  password_digest: <%= User.digest('password') %>
  sex: 1
+
+
+jane:
+  name: Jane
+  surname: Hopins
+  email: hopins-me@jane.com
+  password_digest: <%= User.digest('password') %>
+  sex: 0

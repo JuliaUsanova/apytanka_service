@@ -6,7 +6,7 @@
 
     var userMod = angular.module('user');
 
-    userMod.service('userService', function(){
+    userMod.service('userService', [function(sessionApi){
 
         var User = (function(){
 
@@ -21,16 +21,15 @@
                 this.skills_attributes = data.skills_attributes || null;
                 this.avatar = data.avatar || '/assets/default-user-image.png';
                 this.newAvatar = null;
+                this.isRegistered = (function(result){
+                    var state = false;
+
+                    return function(result){
+                        if( result != null ) state = result;
+                        return state;
+                    };
+                })();
             }
-
-            UserClass.prototype.isRegistered = (function(result){
-                var state = false;
-
-                return function(result){
-                    if ( result ) state = result;
-                    return state;
-                };
-            })();
 
             UserClass.prototype.addNewSkill = function(){
                 this.skills_attributes.push({});
@@ -67,7 +66,9 @@
 
         this.setUser = function(data){
             user (data);
-            if ( !user().isRegistered() && data ) user().isRegistered(true);
+            if ( !user().isRegistered() && angular.isObject(data) && data.id != null ) {
+                user().isRegistered(true);
+            }
             //if (downloadUserData('login', 'loginUser', data)) return true;
         };
 
@@ -81,7 +82,6 @@
 
         this.userFactory =  User;
 
-
-    });
+    }]);
 
 })();

@@ -108,7 +108,7 @@ textarea{
     line-height: 45px;
     margin-bottom: 20px;
 
-    [data-toggle="dropdown"] {
+    button[data-toggle="dropdown"] {
 
       @extend .btn-orange;
       @extend .big-btn;

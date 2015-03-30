@@ -6,7 +6,7 @@ class Api::SessionsControllerTest < ActionController::TestCase
     assert session[:user_id].nil?
   end
 
-  test "shouldn create a new user session" do
+  test "should create a new user session" do
     user = users(:andy)
     post :create, session: {email: user.email, password: 'password'}
     assert_not session[:user_id].nil?

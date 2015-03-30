@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311064557) do
+ActiveRecord::Schema.define(version: 20150329132738) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "country"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150311064557) do
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
     t.string   "avatar"
+    t.string   "remember_digest"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

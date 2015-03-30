@@ -3,12 +3,25 @@
         <div class="clearfix top-nav">
             <div id="logo" class="clearfix">
                 <a href="/"><p class="pull-left logo">Apytanka.by</p></a>
-                <p class="pull-right">
-                    <a class="login" id="login" ng-hide="currentUser.name"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Войти</a>
-                    <a class="login" ng-show="currentUser.name" href="/profile/{{currentUser.id}}/edit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{currentUser.name}}
-                        <span class="user-photo img-circle"><img ng-src="{{currentUser.avatar}}"></span>
-                    </a>
-                </p>
+                <div class="pull-right">
+                    <a class="login" id="login" ng-hide="currentUser.isRegistered()"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Войти</a>
+                    <div class="dropdown" ng-show="currentUser.name">
+                        <a class="login dropdown-toggle"  data-toggle="dropdown" data-target="#" aria-expanded="false">
+                            {{currentUser.name}}
+                            <span class="user-photo img-circle"><img ng-src="{{currentUser.avatar}}"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="/profile/{{currentUser.id}}/edit"><span class="glyphicon glyphicon-user"> Profile</span></a>
+                            </li>
+                            <li class="divider"></li>
+                            <li ng-click="logout()" >
+                                <a href=""><span class="glyphicon glyphicon-share-alt"> Logout</span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
             <div class="clearfix">
                 <div class="clearfix sublogo col-sm-6 col-xs-12">
@@ -28,13 +41,11 @@
                             Катэгорыі <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
-                            <li>
                             <li><a><span class="glyphicon glyphicon-headphones"></span>  Забавы</a></li>
                             <li><a><span class="glyphicon glyphicon-heart-empty"></span>  Здароўе</a></li>
                             <li><a><span class="glyphicon glyphicon-briefcase"></span>  Бізнэс</a></li>
                             <li><a><span class="glyphicon glyphicon-road"></span>  Падарожжы</a></li>
                             <li><a><span class="glyphicon glyphicon-th-large"></span>  Іншае</a></li>
-                            </li>
                         </ul>
                     </div>
                 </div>

@@ -2,8 +2,8 @@ class Api::UsersController < ApplicationController
   def create
     user = User.new(safe_params)
     if user.save
-      log_in(user)
-      render json: user, serializer: Api::UserSerializer
+        log_in(user)
+        render json: user, serializer: Api::UserSerializer
     else
       render json: {errors: user.errors.full_messages}
     end

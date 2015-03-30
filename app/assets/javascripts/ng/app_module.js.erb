@@ -131,12 +131,13 @@
 
     }]);
 
-    app.controller('appCtrl', ['$scope','userService', function($scope, userService){
+    app.controller('appCtrl', ['$scope','userService', 'sessionApi', function($scope, userService, sessionApi) {
 
-//        $scope.$watch(userService.getUser, function( newVal ){
-//            $scope.currentUser = newVal;
-//            console.log('reg');
-//        });
+        $scope.logout = function () {
+            sessionApi.delete(function () {
+                userService.setUser({});
+            });
+        };
 
     }]);
 

@@ -13,4 +13,6 @@ jQuery(document).ready(function(){
         jQuery('#loginForm').modal('show');
     });
 
+    jQuery('.dropdown-toggle').dropdown();
+
 });
