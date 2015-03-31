@@ -6,6 +6,8 @@ andy:
  email: hopins@andy.com
  password_digest: <%= User.digest('password') %>
  sex: 1
+ activated: true
+ activated_at: <%= 2.days.ago %>
 
 
 jane:
@@ -14,3 +16,5 @@ jane:
   email: hopins-me@jane.com
   password_digest: <%= User.digest('password') %>
   sex: 0
+  activated: true
+  activated_at: <%= Time.zone.now %>

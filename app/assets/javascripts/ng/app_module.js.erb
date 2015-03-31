@@ -29,6 +29,19 @@
 //                            }
 //                        }
                     }).
+                    when('/account_activations/:id/edit?email=:email', {
+                        resolve: {
+                            user_data: function($resource, $route, $routeParams, userService){
+                                var AccountActivation = $resource($route.url);
+                                return AccountActivation.save({id: $route.current.params.id, email: $route.current.params.email}).$promise.then(function(data){
+                                    userService.setUser(data.user);
+                                });
+                            }
+                        },
+                        redirectTo: function(userService){
+                            return '/profile/' + userService.getUser().id + '/edit/about'
+                        }
+                    }).
                     when('/profile/:id?:params', {
                         templateUrl: 'ng/templates/profile.html',
                         controller: 'chosenUserProfile',

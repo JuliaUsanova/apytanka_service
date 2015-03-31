@@ -13,9 +13,9 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :skills, reject_if: proc { |attributes| attributes['job'].blank? }
 
   before_save :downcase_email
-  before_create :create_address
+  before_create :create_address, :create_digest_token
 
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token
 
   # Returns the hash digest of the given string.
   def self.digest(string)
@@ -42,13 +42,20 @@ class User < ActiveRecord::Base
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
-  def authenticated?(remember_token)
-    return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  def authenticated?(token, type)
+    digest = send("#{type}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  # Activates an account.
+  def activate
+    update_attribute(:activated,    true)
+    update_attribute(:activated_at, Time.zone.now)
   end
 
   private
@@ -56,6 +63,11 @@ class User < ActiveRecord::Base
   def downcase_email
     # Converts email to all lower-case.
     self.email = email.downcase
+  end
+
+  def create_digest_token
+    self.activation_token  = User.secure_token
+    self.activation_digest = User.digest(activation_token)
   end
 
 end
